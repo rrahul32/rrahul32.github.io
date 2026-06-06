@@ -1,60 +1,275 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rahul Reghu</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rahul Reghu — Backend Engineer</title>
+  <meta name="description" content="Backend engineer building distributed e-commerce and marketplace systems with TypeScript, Node.js, NestJS, GraphQL, MongoDB and Elasticsearch." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rahul Reghu — Backend Engineer" />
+  <meta property="og:description" content="Distributed e-commerce backends · TypeScript · Node.js · NestJS · GraphQL" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0c10',
+            panel: '#0f1218',
+            line: '#1d2230',
+            mut: '#8b97a8',
+            txt: '#cdd6e4',
+            acc: '#2dd4bf',
+            acc2: '#38bdf8',
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html, body { background: #0a0c10; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .glow { background: radial-gradient(600px circle at 50% -10%, rgba(45,212,191,.10), transparent 60%); }
+    ::selection { background: rgba(45,212,191,.25); }
+    a { -webkit-tap-highlight-color: transparent; }
+    /* never hide content if JS is disabled or fails */
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; transition: none; } }
+  </style>
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 
-<body class="bg-light">
-    <div class="container-fluid">
-        <div class="row bg-dark text-white">
-            
-            <div class="col-3 my-auto">
-                <img src="https://lh3.googleusercontent.com/xgm33qFVjcYkPKPFVGT3m0xuYZ9RHG6O27gl0ZDvv6rECArJPEfeKpoUDpa3mokgtszaEmUucHYW8qKC8Sh_qXUVuoQbdmgrOiGa_IQlTQE7CosNBuHEo5fFs8Mg92AOyTAcmy57dmZevbY4X9yvTq88qoIt2JbCSPThCgrvzYkuxOymIM9sKSVSS9x_e-VCHAjyVFuvVw0NPfhVKGhVTI3m-7quRaxdtYct6ojqlhB6WPit8UEl95gZzXVzA74j4FOZMsEugog5-7eKs_ehsPE6AeYMBVC-S9PI_tsizvMDnE2NR8ytoqlo0jUsFVgHvBQwBv7jx6ntHSS1Pncg539LkGXHJHUUzg2MmLilD8hRk_hDCdDLSEwBw_Rbs5GDBUT9a0U75FLWPpj_-ziybFCbAG6O5v1VqJYlgsYi0tT0i2zgtzAlYnXwnAAxqdbsJcl8R6ldWTTeEKx3tsHXpGRvgJlqZNRBi_55yFyfRMEUImfDGiBx3zNea2uJUc6hfyrAzkSV0M_c81tMhfSYOqx_WjrUS7HRpHEfy54JVJ1Xshw33kHPUVDrvV19woFapH8WNIj8MKYo7rEhlD7hf5FFFVz18_K67dL2vaFilnT4OGBf3PlfvgR7GK3Ragz0cc9DnodknuzwoXk--X5nVmvjJg_nFCMYVawhw3L43X7yVt7wk_EVowmE8ns_BuUkulvanP6rJvxl--ksp8UFA4VaA4rfMlv9XengdLH9xTRNhnBb-Ic8uP_PgUA=w483-h643-no?authuser=0"
-                    class="img-fluid rounded float-right" alt="Loading..." width="200">
-            </div>
-            <div class="col pt-5 text-center">
-                <h2><big>Hello, I'm</big></h2>
-                <h1><b><big>RAHUL</big></b></h1>
-                <h2 disabled>I'm a web developer</h2>
-            </div>
-            <div class="col-1">
+<body class="font-sans text-txt antialiased selection:text-white">
 
+  <!-- nav -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-ink/80 backdrop-blur">
+    <nav class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">
+      <a href="#top" class="font-mono text-sm font-bold tracking-tight text-white">rahul<span class="text-acc">.dev</span></a>
+      <div class="hidden gap-7 text-sm text-mut sm:flex">
+        <a href="#about" class="transition hover:text-white">About</a>
+        <a href="#skills" class="transition hover:text-white">Skills</a>
+        <a href="#work" class="transition hover:text-white">Experience</a>
+        <a href="#projects" class="transition hover:text-white">Projects</a>
+        <a href="#contact" class="transition hover:text-white">Contact</a>
+      </div>
+      <a href="#contact" class="rounded-md border border-acc/40 bg-acc/10 px-3 py-1.5 text-xs font-semibold text-acc transition hover:bg-acc/20">Get in touch</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- hero -->
+    <section class="glow relative px-5 pt-36 pb-20">
+      <div class="mx-auto max-w-5xl">
+        <p class="reveal font-mono text-sm text-acc">Hi, I'm Rahul Reghu</p>
+        <h1 class="reveal mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">
+          Backend engineer building <span class="text-acc">distributed e-commerce</span> systems.
+        </h1>
+        <p class="reveal mt-6 max-w-2xl text-lg leading-relaxed text-mut">
+          3 years shipping TypeScript &amp; Node.js services for high-traffic commerce and marketplace
+          platforms — catalog, checkout, payments, search, recommendations, and async workflows.
+        </p>
+        <div class="reveal mt-8 flex flex-wrap gap-3">
+          <a href="https://github.com/rrahul32" target="_blank" rel="noopener" class="rounded-md bg-acc px-4 py-2.5 text-sm font-semibold text-ink transition hover:brightness-110">GitHub</a>
+          <a href="https://linkedin.com/in/rrahul32" target="_blank" rel="noopener" class="rounded-md border border-line bg-panel px-4 py-2.5 text-sm font-semibold text-txt transition hover:border-mut">LinkedIn</a>
+          <a href="mailto:rahulreghu32@gmail.com" class="rounded-md border border-line bg-panel px-4 py-2.5 text-sm font-semibold text-txt transition hover:border-mut">Email</a>
+          <a href="./Rahul_CV.pdf" class="rounded-md border border-line bg-panel px-4 py-2.5 text-sm font-semibold text-txt transition hover:border-mut">Résumé ↗</a>
+        </div>
+
+        <!-- stats -->
+        <dl class="reveal mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-4">
+          <div class="bg-ink p-5">
+            <dt class="text-2xl font-bold text-white">3<span class="text-acc">y</span></dt>
+            <dd class="mt-1 text-xs text-mut">backend experience</dd>
+          </div>
+          <div class="bg-ink p-5">
+            <dt class="text-2xl font-bold text-white">~4×</dt>
+            <dd class="mt-1 text-xs text-mut">faster queries (800→200ms)</dd>
+          </div>
+          <div class="bg-ink p-5">
+            <dt class="text-2xl font-bold text-white">20k+</dt>
+            <dd class="mt-1 text-xs text-mut">products served</dd>
+          </div>
+          <div class="bg-ink p-5">
+            <dt class="text-2xl font-bold text-white">50+</dt>
+            <dd class="mt-1 text-xs text-mut">marketplace partners</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- about -->
+    <section id="about" class="border-t border-line/60 px-5 py-20">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-acc">// about</h2>
+        <div class="reveal mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-mut">
+          <p>
+            I build and maintain production backends for e-commerce and marketplace platforms at
+            <span class="text-txt">Evolvier Technologies</span> — designing APIs, data models, and
+            transactional workflows that stay fast and reliable under load.
+          </p>
+          <p>
+            My work spans both monoliths and microservices: I've migrated business-critical workflows
+            into independently deployable <span class="text-txt">NestJS</span> services, tuned
+            <span class="text-txt">MongoDB</span> for big latency wins, and built search and
+            recommendation systems on <span class="text-txt">Elasticsearch</span> and Atlas Search.
+            Lately I'm going deeper on durable async job processing and distributed-systems patterns.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- skills -->
+    <section id="skills" class="border-t border-line/60 px-5 py-20">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-acc">// skills</h2>
+        <div class="reveal mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-xl border border-line bg-panel p-5">
+            <h3 class="text-sm font-semibold text-white">Languages</h3>
+            <div class="mt-3 flex flex-wrap gap-2" data-chips="JavaScript,TypeScript"></div>
+          </div>
+          <div class="rounded-xl border border-line bg-panel p-5">
+            <h3 class="text-sm font-semibold text-white">Backend</h3>
+            <div class="mt-3 flex flex-wrap gap-2" data-chips="Node.js,NestJS,GraphQL,REST APIs,Async Processing"></div>
+          </div>
+          <div class="rounded-xl border border-line bg-panel p-5">
+            <h3 class="text-sm font-semibold text-white">Data &amp; Search</h3>
+            <div class="mt-3 flex flex-wrap gap-2" data-chips="MongoDB,NoSQL,Elasticsearch,Atlas Search"></div>
+          </div>
+          <div class="rounded-xl border border-line bg-panel p-5">
+            <h3 class="text-sm font-semibold text-white">Architecture</h3>
+            <div class="mt-3 flex flex-wrap gap-2" data-chips="Microservices,Distributed Systems,Search Systems,Recommendations,API Design"></div>
+          </div>
+          <div class="rounded-xl border border-line bg-panel p-5">
+            <h3 class="text-sm font-semibold text-white">Infra &amp; Tools</h3>
+            <div class="mt-3 flex flex-wrap gap-2" data-chips="Docker,Linux,AWS S3,Git,Dokploy"></div>
+          </div>
+          <div class="rounded-xl border border-line bg-panel p-5">
+            <h3 class="text-sm font-semibold text-white">Frontend</h3>
+            <div class="mt-3 flex flex-wrap gap-2" data-chips="React.js,Next.js"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- experience -->
+    <section id="work" class="border-t border-line/60 px-5 py-20">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-acc">// experience</h2>
+        <div class="reveal mt-8 rounded-xl border border-line bg-panel p-6 sm:p-8">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-lg font-semibold text-white">Software Developer · Evolvier Technologies</h3>
+            <span class="font-mono text-xs text-mut">Apr 2023 — Apr 2026 · Kochi, India</span>
+          </div>
+          <ul class="mt-5 space-y-3 text-mut">
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-acc"></span><span>Engineered backend services, GraphQL &amp; REST APIs, and transactional workflows for distributed e-commerce platforms using TypeScript, Node.js, NestJS, and MongoDB.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-acc"></span><span>Optimized MongoDB indexing and aggregation pipelines, cutting query latency from ~800ms to ~200ms (~4× faster) on high-traffic services.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-acc"></span><span>Designed Elasticsearch &amp; Atlas Search indexes for catalog search and product discovery across catalogs of 20,000+ products.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-acc"></span><span>Migrated cart, product, and auth workflows from a monolith into independently deployable NestJS microservices.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- projects -->
+    <section id="projects" class="border-t border-line/60 px-5 py-20">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-acc">// projects</h2>
+        <div class="reveal mt-8 grid gap-5 sm:grid-cols-2">
+
+          <a href="https://github.com/rrahul32/Async-Job-Processor" target="_blank" rel="noopener" class="group rounded-xl border border-line bg-panel p-6 transition hover:border-acc/50">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-white">Async-Job-Processor</h3>
+              <span class="rounded-full border border-acc/30 px-2 py-0.5 text-[10px] font-semibold text-acc">WIP</span>
             </div>
+            <p class="mt-2 text-sm leading-relaxed text-mut">Durable async job/workflow processor for e-commerce backends — queues, workers, retries, and fault recovery. A focused dive into distributed-systems patterns.</p>
+            <div class="mt-4 flex flex-wrap gap-2" data-chips="NestJS,TypeScript,BullMQ,Redis,Docker"></div>
+            <span class="mt-4 inline-block font-mono text-xs text-mut transition group-hover:text-acc">View on GitHub →</span>
+          </a>
+
+          <a href="https://github.com/rrahul32/chatApp" target="_blank" rel="noopener" class="group rounded-xl border border-line bg-panel p-6 transition hover:border-acc/50">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-white">chatApp</h3>
+              <span class="rounded-full border border-line px-2 py-0.5 text-[10px] font-semibold text-mut">85+ commits</span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-mut">Real-time messaging app with AI features — GPT-3.5 auto-replies, translation, and emotion detection. Backend + mobile.</p>
+            <div class="mt-4 flex flex-wrap gap-2" data-chips="Meteor.js,MongoDB,React Native,OpenAI"></div>
+            <span class="mt-4 inline-block font-mono text-xs text-mut transition group-hover:text-acc">View on GitHub →</span>
+          </a>
+
+          <div class="rounded-xl border border-line bg-panel/60 p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-white">Quikzii</h3>
+              <span class="rounded-full border border-line px-2 py-0.5 text-[10px] font-semibold text-mut">professional</span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-mut">Multi-domain e-commerce platform: backend workflows, Meta Commerce product sync (~500/run, 5,000+ products), and Atlas Search discovery.</p>
+            <div class="mt-4 flex flex-wrap gap-2" data-chips="NestJS,TypeScript,MongoDB,Atlas Search,Stripe"></div>
+          </div>
+
+          <div class="rounded-xl border border-line bg-panel/60 p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-white">MyNeibo</h3>
+              <span class="rounded-full border border-line px-2 py-0.5 text-[10px] font-semibold text-mut">professional</span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-mut">Marketplace platform (50+ partners, 20,000+ products): GraphQL microservices, Elasticsearch ingestion, and a Gorse-powered recommendation service.</p>
+            <div class="mt-4 flex flex-wrap gap-2" data-chips="GraphQL,NestJS,Elasticsearch,MongoDB,Gorse"></div>
+          </div>
+
         </div>
-        <div class="row bg-light">
-<div class="col justify-content-center text-center mt-5">
-    <h3>My Projects</h3>
-    <ul>
-        <li class="my-3 py-2">
-            <a href="https://github.com/rrahul32/campus" class="btn btn-outline-dark">An Online Recruitment System Using PHP</a>
-        </li>
-        <li class="my-3 py-2">
-            <a href="https://github.com/rrahul32/DEEN" class="btn btn-outline-dark">An Android App To Cipher And Decipher Text</a>
-        </li>
-    </ul>
-    
-</div>
+      </div>
+    </section>
+
+    <!-- contact -->
+    <section id="contact" class="border-t border-line/60 px-5 py-24">
+      <div class="mx-auto max-w-5xl text-center">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-acc">// contact</h2>
+        <p class="reveal mx-auto mt-6 max-w-xl text-2xl font-bold tracking-tight text-white">
+          Open to backend engineering roles. Let's talk.
+        </p>
+        <div class="reveal mt-8 flex flex-wrap justify-center gap-3">
+          <a href="mailto:rahulreghu32@gmail.com" class="rounded-md bg-acc px-5 py-2.5 text-sm font-semibold text-ink transition hover:brightness-110">rahulreghu32@gmail.com</a>
+          <a href="https://linkedin.com/in/rrahul32" target="_blank" rel="noopener" class="rounded-md border border-line bg-panel px-5 py-2.5 text-sm font-semibold text-txt transition hover:border-mut">LinkedIn</a>
+          <a href="https://github.com/rrahul32" target="_blank" rel="noopener" class="rounded-md border border-line bg-panel px-5 py-2.5 text-sm font-semibold text-txt transition hover:border-mut">GitHub</a>
         </div>
-    <div class="row text-center justify-content-center">
-<div class="col-3 mt-5">
-    <a href="https://www.linkedin.com/in/rrahul32" class="btn btn-primary"><h3>My <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-      </svg> Profile</h3></a>
-</div>
-        
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line/60 px-5 py-8">
+    <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-2 text-xs text-mut sm:flex-row">
+      <span class="font-mono">© <span id="year"></span> Rahul Reghu</span>
+      <span class="font-mono">Built with HTML &amp; Tailwind · hosted on GitHub Pages</span>
     </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
-        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
-        crossorigin="anonymous"></script>
+  </footer>
+
+  <script>
+    // chips
+    document.querySelectorAll('[data-chips]').forEach(function (el) {
+      el.dataset.chips.split(',').forEach(function (c) {
+        var s = document.createElement('span');
+        s.className = 'rounded border border-line bg-ink px-2 py-1 font-mono text-[11px] text-txt';
+        s.textContent = c.trim();
+        el.appendChild(s);
+      });
+    });
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // reveal on scroll
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  </script>
 </body>
-
 </html>
